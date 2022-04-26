@@ -1,8 +1,8 @@
+import Header from "./components/Header";
+
 const App = () => {
   return (
-    <div>
-      <h1>TLM</h1>
-    </div>
+    <Header />
   );
 }
 
