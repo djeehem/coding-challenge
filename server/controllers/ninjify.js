@@ -8,11 +8,9 @@ const getBuzzNinja = async (req, res) => {
   console.log(`buzzwords: ${buzzwords}`)
   try {
     console.log(`requested buzzword(s) : ${buzzwords}`);
-
     const buzzNinjas = await BuzzNinja.find({buzzWord: buzzwords});
 
     console.log(`buzzNinjas: ${buzzNinjas}`);
-    
     let names = [];
     for (let buzzNinja of buzzNinjas) { names.push(buzzNinja.ninjaName) }
     console.log(`ninja name(s) found : ${names}`);   

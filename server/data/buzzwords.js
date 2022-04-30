@@ -1,7 +1,7 @@
 export const buzzwords = [
-  { buzzWord: "PHP", ninjaName: "Kenshin" }, 
-  { buzzWord: "Angular", ninjaName: "Naruto" }, 
-  { buzzWord: "Python", ninjaName: "Daniel" }, 
-  { buzzWord: "Sass", ninjaName: "ChingChang" }, 
-  { buzzWord: "Java", ninjaName: "Wong" }
+  { buzzWord: "php", ninjaName: "Kenshin" }, 
+  { buzzWord: "angular", ninjaName: "Naruto" }, 
+  { buzzWord: "python", ninjaName: "Daniel" }, 
+  { buzzWord: "sass", ninjaName: "ChingChang" }, 
+  { buzzWord: "java", ninjaName: "Wong" }
 ];
