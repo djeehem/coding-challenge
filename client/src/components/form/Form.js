@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import WordList from "../wordList/WordList"
 
-import { getBuzzNinjaApi, getBuzzwordApi } from '../../api';
+import { getBuzzNinjaApi } from '../../api';
 
 import Button from '../../theme/Button';
 import NinjaNameModal from '../modal/NinjaNameModal';
 
 const Form = () => {
   const [inputList, setInputList] = useState([""]);
-  const [buzzwordCount, setBuzzwordCount] = useState();
   const [ninjaName, setNinjaName] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
 
-  useEffect(() => {
-  getBuzzwordApi()
-    .then(data => {
-      setBuzzwordCount(data.data.countData)
-    })
-  }, [])
+
   
   // handle input change
   const handleInputChange = (e, index) => {
@@ -26,8 +21,6 @@ const Form = () => {
     list[index] = value;
     setInputList(list);
   };
-
-  console.log(inputList)
   
   // handle click event of the Remove button
   const handleRemoveClick = i => {
@@ -55,17 +48,15 @@ const Form = () => {
   
   return (
     <Wrapper>
-      <Title>Buzzwords Ninjification</Title>
+      <Main>
+        <FormContent onSubmit={handleSubmit}>
+          <AddNinjify>
+            <Button type="button" onClick={handleAddClick}>+</Button>
+            <Button type="submit" value="Ninjify">Ninjify</Button>
+          </AddNinjify>
 
-      <SubTitle>Input buzzwords from this humongous list of {buzzwordCount} tech words below to make up your own ninja name.</SubTitle>
-
-      <form onSubmit={handleSubmit}>
-        <AddNinjify>
-          <Button type="button" onClick={handleAddClick}>+</Button>
-          <Button type="submit" value="Ninjify">Ninjify</Button>
-        </AddNinjify>
-        {inputList.map((input, i) => {
-          return (
+          {inputList.map((input, i) => {
+            return (
               <InputWrapper key={i}>
                 <StyledInput
                   // name=""
@@ -80,33 +71,34 @@ const Form = () => {
                   onClick={() => handleRemoveClick(i)}>-
                 </Button>}
               </InputWrapper>
-          );
-        })}
-      </form>
-
+            );
+          })}
+        </FormContent>
+        <WordList />
+      </Main>
       <NinjaNameModal
         ninjaName={ninjaName}
         setModalOpen={setModalOpen}
         modalOpen={modalOpen}
         setNinjaName={setNinjaName}
         setInputList={setInputList}
-        />
+      />
     </Wrapper>
   );
 }
 
-const Title = styled.h1`
-  text-align: center;
-  margin-bottom: 1rem;
-`;
-
-const SubTitle = styled.h3`
-  text-align: center;
-  margin-bottom: 1rem;
-`;
-
 const Wrapper = styled.div`
   margin: 10 0;
+`;
+
+const Main = styled.div`
+  @media (min-width: 640px) {
+    display: flex;
+  }
+`;
+
+const FormContent = styled.form`
+  flex: 50%;
 `;
 
 const InputWrapper = styled.div`
@@ -115,11 +107,11 @@ const InputWrapper = styled.div`
 `;
 
 const StyledInput = styled.input`
-  display: flex;
   border-radius: 3px;
-  border: none;
   margin-right: 1rem;
   height: 2rem;
+  border: 1px solid #dbdbdb;
+  border-radius: .375em;
 
   &:focus {
     outline: 1px solid #82abed;

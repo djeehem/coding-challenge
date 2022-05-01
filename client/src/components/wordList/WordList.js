@@ -17,7 +17,7 @@ const WordList = () => {
       <List>
         {buzzwordList.map(word => {
           return (
-            <li key={word._id}>{word.buzzWord}</li>
+            <Buzzword key={word._id}>{word.buzzWord}</Buzzword>
           )
         })}
       </List>
@@ -26,10 +26,19 @@ const WordList = () => {
 };
 
 const List = styled.ul`
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  list-style-type: none;
+display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  flex: 50%;
+  list-style-type: none; 
+`;
+
+const Buzzword = styled.li`
+  display: inline;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: .375em;
 `;
 
 export default WordList;

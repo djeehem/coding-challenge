@@ -10,7 +10,7 @@ const NinjaNameModal = ({
     setNinjaName
   }) => {
 
-  const reset = () => {
+  const handleReset = () => {
     setModalOpen(false);
     setInputList([""]);
     setNinjaName("");
@@ -21,8 +21,8 @@ const NinjaNameModal = ({
     <Wrapper>
       <Content>
         {ninjaName}
-        <Spacer>________</Spacer>
-        <Button onClick={reset}>Play again</Button>
+        <Spacer />
+        <Button onClick={handleReset}>Play again</Button>
       </Content>
     </Wrapper>
     )
@@ -57,8 +57,9 @@ const Content = styled.div`
 `;
 
 const Spacer = styled.div`
-  margin-bottom: 1rem;
-  color: red;
+  margin: 0.8rem 0 1rem 0;
+  border-bottom: 0.05rem solid red;
+  width: 50%;
 `;
 
 export default NinjaNameModal;
