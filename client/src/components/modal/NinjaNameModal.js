@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import Button from "../../theme/Button";
 
@@ -41,6 +40,7 @@ const Wrapper = styled.div`
   height: 100vh;
   z-index: 20;
 `;
+
 const Content = styled.div`
   background: white;
   border-radius: 4px;

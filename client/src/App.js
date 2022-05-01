@@ -3,8 +3,6 @@ import GlobalStyles from "./theme/GlobalStyles";
 import NinjaNameModal from "./components/modal/NinjaNameModal";
 import Header from "./components/header/Header";
 
-
-
 const App = () => {
   return (
     <>

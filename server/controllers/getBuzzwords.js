@@ -6,9 +6,6 @@ const getBuzzwords = async (req, res) => {
     const buzzwords = await BuzzNinja.find();
     const buzzwordCount = await BuzzNinja.count();
 
-    console.log(`buzzwords: ${buzzwords}`);
-    console.log(`buzzwordCount: ${buzzwordCount}`);
-
     res.status(200).json({
       status: 200,
       listData: buzzwords,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import WordList from "../wordList/WordList"
 
@@ -36,6 +36,7 @@ const Form = () => {
     setInputList([...inputList, "" ]);
   };
 
+  // handle click event of the Submit button
   const handleSubmit = (event) => {
     event.preventDefault();
     setModalOpen(true);

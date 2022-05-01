@@ -7,7 +7,6 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    /* overflow-x: hidden; */
   }
 
   body {
